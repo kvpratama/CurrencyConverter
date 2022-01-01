@@ -94,20 +94,30 @@ export default ({ navigation }) => {
               resizeMode="contain"
             />
           </View>
-          <Text style={styles.textHeader}> Currency Converter</Text>
+          <Text style={styles.textHeader}>Currency Converter</Text>
           <View style={styles.inputContainer}>
             <ConversionInput
               text={baseCurrency}
-              value="100"
-              onButtonPress={() => alert("todo!")}
+              value="123"
+              onButtonPress={() =>
+                navigation.push("CurrencyList", {
+                  title: "Base Currency",
+                  activeCurrency: baseCurrency,
+                })
+              }
               keyboardType="numeric"
               onChangeText={(text) => console.log("text", text)}
             />
             <ConversionInput
               text={quoteCurrency}
-              value="100"
+              value="123"
               editable={false}
-              onButtonPress={() => alert("todo!")}
+              onButtonPress={() =>
+                navigation.push("CurrencyList", {
+                  title: "Quote Currency",
+                  activeCurrency: quoteCurrency,
+                })
+              }
             />
           </View>
           <Text style={styles.text}>
@@ -116,7 +126,7 @@ export default ({ navigation }) => {
               "MMM do, yyyy"
             )}`}
           </Text>
-          <Button text="Reverse Currencies" onPress={() => swapCurrencies()} />
+          <Button text="Reverse Currencies" onPress={() => alert("todo!")} />
           <KeyboardSpacer onToggle={(visible) => setScrollEnabled(visible)} />
         </View>
       </ScrollView>
